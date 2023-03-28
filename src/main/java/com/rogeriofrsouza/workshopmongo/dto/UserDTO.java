@@ -4,13 +4,7 @@ import java.io.Serializable;
 
 import com.rogeriofrsouza.workshopmongo.domain.User;
 
-/*
- * Data Transfer Object: objeto com o papel de carregar dados das entidades de forma simples,
- * podendo "projetar" apenas alguns dados da entidade original. Vantagens:
- * - Otimiza o tráfego;
- * - Evita que dados de interesse exclusivo do sistema fiquem expostos;
- * - Customiza os objetos trafegados conforme a necessidade de cada requisição.
- */
+// Data Transfer Object
 public class UserDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
