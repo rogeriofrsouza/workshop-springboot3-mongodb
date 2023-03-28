@@ -1,13 +1,16 @@
 package com.rogeriofrsouza.workshopmongo.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.rogeriofrsouza.workshopmongo.dto.AuthorDTO;
+import com.rogeriofrsouza.workshopmongo.dto.CommentDTO;
 
 @Document(collection = "post")
 public class Post implements Serializable {
@@ -16,7 +19,7 @@ public class Post implements Serializable {
 	
 	@Id
 	private String id;
-	private LocalDate date;
+	private Instant moment;
 	private String title;
 	private String body;
 	
@@ -26,12 +29,14 @@ public class Post implements Serializable {
 	 */
 	private AuthorDTO author;
 	
+	private List<CommentDTO> comments = new ArrayList<>();
+	
 	public Post() {
 	}
 
-	public Post(String id, LocalDate date, String title, String body, AuthorDTO author) {
+	public Post(String id, Instant moment, String title, String body, AuthorDTO author) {
 		this.id = id;
-		this.date = date;
+		this.moment = moment;
 		this.title = title;
 		this.body = body;
 		this.author = author;
@@ -45,12 +50,12 @@ public class Post implements Serializable {
 		this.id = id;
 	}
 
-	public LocalDate getDate() {
-		return date;
+	public Instant getDate() {
+		return moment;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setDate(Instant moment) {
+		this.moment = moment;
 	}
 
 	public String getTitle() {
@@ -75,6 +80,10 @@ public class Post implements Serializable {
 
 	public void setAuthor(AuthorDTO author) {
 		this.author = author;
+	}
+	
+	public List<CommentDTO> getComments() {
+		return comments;
 	}
 
 	@Override
