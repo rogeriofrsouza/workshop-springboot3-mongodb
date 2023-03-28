@@ -28,9 +28,9 @@ public class Instantiation implements CommandLineRunner {
 		userRepository.deleteAll();
 		postRepository.deleteAll();
 		
-		User u1 = new User(null, "Maria Brown", "maria@gmail.com");
-		User u2 = new User(null, "Alex Green", "alex@gmail.com");
-		User u3 = new User(null, "Bob Grey", "bob@gmail.com");
+		User u1 = new User(null, "Maria Brown", "maria@gmail.com", "123456");
+		User u2 = new User(null, "Alex Green", "alex@gmail.com", "123456");
+		User u3 = new User(null, "Bob Grey", "bob@gmail.com", "123456");
 		
 		// Instanciação (carga inicial) do banco de dados
 		userRepository.saveAll(Arrays.asList(u1, u2, u3));
@@ -41,6 +41,10 @@ public class Instantiation implements CommandLineRunner {
 		Post p2 = new Post(null, LocalDate.parse("21/03/2018", fmt), "Bom dia", "Hoje eu acordei feliz!", new AuthorDTO(u1));
 		
 		postRepository.saveAll(Arrays.asList(p1, p2));
+		
+		// Incluindo posts do usuário
+		u1.getPosts().addAll(Arrays.asList(p1, p2));
+		userRepository.save(u1);
 	}
 
 }

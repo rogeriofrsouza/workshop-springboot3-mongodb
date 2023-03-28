@@ -20,6 +20,10 @@ public class Post implements Serializable {
 	private String title;
 	private String body;
 	
+	/*
+	 * Associação na forma de objeto aninhado -> Agregado
+	 * Cópia dos dados do usuário -> Desnormalização
+	 */
 	private AuthorDTO author;
 	
 	public Post() {
