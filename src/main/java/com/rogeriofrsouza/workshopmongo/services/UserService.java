@@ -41,7 +41,7 @@ public class UserService {
 		user.setName(obj.getName());
 		user.setEmail(obj.getEmail());
 		
-		return repository.save(obj);
+		return repository.save(user);
 	}
 	
 	public User fromDto(UserDTO objDto) {

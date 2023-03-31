@@ -34,8 +34,8 @@ public class UserResource {
 		List<UserDTO> listDto = list.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
 		
 		/*
-		 *  Retorna a instância de um objeto sofisticado do Spring
-		 *  Encapsula a estrutura necessária para retornar respostas HTTP com cabeçalhos, erros, etc
+		 * Retorna a instância de um objeto sofisticado do Spring: ResponseEntity
+		 * Encapsula a estrutura necessária para retornar respostas HTTP com cabeçalhos, erros, etc
 		 */
 		return ResponseEntity.ok().body(listDto);
 	}

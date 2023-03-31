@@ -11,16 +11,15 @@ import com.rogeriofrsouza.workshopmongo.domain.Post;
 public interface PostRepository extends MongoRepository<Post, String> {
 
 	/*
-	 * Query methods - Spring Data
+	 * Query method - Spring Data
 	 * Busca posts contendo um dado string no título, ignora case sensitive
 	 */
 	List<Post> findByTitleContainingIgnoreCase(String text);
 	
-	@Query("{ 'title': { $regex: ?0, $options: 'i' } }")  // ?0 -> valor recebido por parâmetro (text)
+	@Query("{ 'title': { $regex: ?0, $options: 'i' } }")  // ?0 -> placeholder: valor recebido por parâmetro
 	List<Post> searchTitle(String text);
 	
-	// "Buscar posts contendo um dado string em qualquer lugar e em um dado intervalo de datas"
-	
+	// Buscar posts contendo um dado string em qualquer lugar e em um dado intervalo de datas
 	@Query("{ $and: [ "
 			+ "{ moment: { $gte: ?1 } }, "
 			+ "{ moment: { $lte: ?2 } }, "

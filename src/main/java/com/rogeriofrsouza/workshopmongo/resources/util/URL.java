@@ -22,7 +22,7 @@ public class URL {
 		try {
 			return Instant.parse(textDate);
 		}
-		catch (DateTimeParseException  e) {
+		catch (DateTimeParseException e) {
 			return defaultValue;
 		}
 	}
