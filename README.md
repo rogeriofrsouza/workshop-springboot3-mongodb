@@ -5,7 +5,7 @@
 
 Esta é uma aplicação back-end para web desenvolvida durante o curso [**Java COMPLETO 2023 Programação Orientada a Objetos +Projetos**](https://www.udemy.com/course/java-curso-completo/), ministrado pelo professor [Nelio Alves](https://www.udemy.com/user/nelio-alves/ "Perfil do Nelio Alves na Udemy").
 
-Este projeto consiste em uma API Rest simples que implementa operações CRUD de dados de usuários e posts. Utiliza mapeamento objeto relacional para persistência de dados e retorna respostas em formato JSON.
+Este projeto consiste em uma API Rest simples que implementa operações CRUD de dados de usuários e posts. Utiliza ainda, Data Transfer Objects (DTO), Spring Data para persistência de dados e retorna respostas em formato JSON.
 
 
 ## Modelo conceitual
